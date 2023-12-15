@@ -1,0 +1,37 @@
+.hero {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.hero img {
+  width: 100%;
+  aspect-ratio: 9/3;
+  object-fit: cover;
+  object-position: 100% 36%;
+}
+
+.hero div {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  display: flex;
+}
+.hero div button {
+  display: flex;
+  align-self: center;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  opacity: 0.8;
+  border: 0;
+  border-radius: 4px;
+  color: white;
+  background-color: rgba(133, 132, 130, 0.8);
+}
+
+.hero .watchBtn {
+  margin-right: 1em;
+  background-color: lightgray;
+  color: black;
+  opacity: 1;
+}
