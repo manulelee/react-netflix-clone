@@ -5,10 +5,10 @@ import { fetchTitles } from "../utils/http";
 import TitleCard from "./TitleCard";
 import classes from "./Carousel.module.css";
 
-const CarouselComponent = ({ url, title }) => {
+const CarouselComponent = ({ query, queryKey, title }) => {
   const { data, isError, isLoading } = useQuery({
-    queryFn: ({ signal }) => fetchTitles({ signal, url }),
-    queryKey: [url],
+    queryFn: ({ signal }) => fetchTitles({ signal, query }),
+    queryKey: [queryKey],
     refetchInterval: 10000,
   });
 
@@ -48,7 +48,7 @@ const CarouselComponent = ({ url, title }) => {
   if (data) {
     content = (
       <span className={classes.container}>
-        <h2 className="-mb-5 ml-5 text-2xl font-bold">{title}</h2>
+        <h2 className="-mb-5 text-2xl font-bold">{title}</h2>
         <Carousel
           containerClass="carousel-container"
           responsive={responsive}
@@ -66,6 +66,7 @@ const CarouselComponent = ({ url, title }) => {
       </span>
     );
   }
+  console.log(queryKey);
   return content;
 };
 

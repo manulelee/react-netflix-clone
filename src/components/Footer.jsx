@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="w-full">
       <div className="mx-auto w-3/4">
-        <p className="text-xl flex items-middle">
+        <p className="text-xl flex items-center">
           <a href="https://www.facebook.com/netflix" target="_blank" rel="noreferrer" className="mr-5">
             <FaFacebookF />
           </a>
@@ -21,7 +21,7 @@ const Footer = () => {
             <FaYoutube />
           </a>
         </p>
-        <ul className="list-none opacity-60 flex grid grid-cols-2 md:grid-cols-4 my-3 leading-10 text-sm">
+        <ul className="list-none opacity-60 grid grid-cols-2 md:grid-cols-4 my-3 leading-10 text-sm">
           <li>
             <Link to="/lorem">Audiodescription</Link>
           </li>

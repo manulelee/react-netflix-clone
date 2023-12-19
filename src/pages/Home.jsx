@@ -3,15 +3,30 @@ import HeroSection from "../components/Hero";
 
 const HomePage = () => {
   return (
-    <div>
-      <HeroSection url="https://api.themoviedb.org/3/search/movie?query=Killers%20of%20the%20Flower%20Moon&include_adult=false&language=en-US&page=1" />
-      <CarouselComponent url="https://api.themoviedb.org/3/trending/all/day?language=en-US" title="Popular movies" />
-      <CarouselComponent url="https://api.themoviedb.org/3/trending/tv/day?language=en-US'" title="Popular Tv shows" />
-      <CarouselComponent
-        url="https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1"
-        title="Top rated movies"
+    <>
+      <HeroSection
+        queryKey={["Killers of the Flower Moon"]}
+        query="search/movie?query=Killers%20of%20the%20Flower%20Moon&include_adult=false&language=en-US&page=1"
+        posterImg="https://www.ciakclub.it/wp-content/uploads/2023/10/7b068ef0-ad6f-4813-ab54-a766ce3047b9-1536x864.jpg"
       />
-    </div>
+      <div className="content">
+        <CarouselComponent
+          queryKey={["Trending movies"]}
+          query="trending/all/day?language=en-US"
+          title="Popular movies"
+        />
+        <CarouselComponent
+          queryKey={["Trending shows"]}
+          query="trending/tv/day?language=en-US'"
+          title="Popular Tv shows"
+        />
+        <CarouselComponent
+          queryKey={["Top rated"]}
+          query="movie/top_rated?language=en-US&page=1"
+          title="Top rated movies"
+        />
+      </div>
+    </>
   );
 };
 export default HomePage;

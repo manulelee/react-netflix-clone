@@ -4,14 +4,14 @@ import classes from "./Hero.module.css";
 import { HiMiniPlay } from "react-icons/hi2";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 
-const HeroSection = ({ url }) => {
+const HeroSection = ({ query, queryKey, posterImg }) => {
   const { data, isError, isLoading } = useQuery({
     queryFn: ({ signal }) =>
       fetchTitles({
         signal,
-        url,
+        query,
       }),
-    queryKey: [url],
+    queryKey: [queryKey],
     refetchInterval: 10000,
   });
   let content;
@@ -26,10 +26,7 @@ const HeroSection = ({ url }) => {
     console.log(data);
     content = (
       <div className={classes.hero}>
-        <img
-          src="https://www.ciakclub.it/wp-content/uploads/2023/10/7b068ef0-ad6f-4813-ab54-a766ce3047b9-1536x864.jpg"
-          alt={movie.original_title + " poster"}
-        />
+        <img src={posterImg} alt={movie.original_title + " poster"} />
         <div>
           <button
             className={classes.watchBtn}
