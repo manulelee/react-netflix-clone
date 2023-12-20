@@ -8,6 +8,7 @@ import TitlePage from "./pages/Title";
 import RootLayout from "./pages/RootLayout";
 import NewPage from "./pages/New";
 import Lorem from "./pages/Lorem";
+import Profile from "./pages/Profile";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/lorem",
         element: <Lorem />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
       },
     ],
   },

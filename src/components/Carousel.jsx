@@ -43,12 +43,12 @@ const CarouselComponent = ({ query, queryKey, title }) => {
     content = <div>Error</div>;
   }
   if (isLoading) {
-    content = <div>Loading...</div>;
+    content = <div className="mx-auto  w-full ">Loading...</div>;
   }
   if (data) {
     content = (
-      <span className={classes.container}>
-        <h2 className="-mb-5 text-2xl font-bold">{title}</h2>
+      <div className={classes.container}>
+        <h2 className="-mb-5 text-2xl font-bold z-10!important">{title}</h2>
         <Carousel
           containerClass="carousel-container"
           responsive={responsive}
@@ -63,10 +63,10 @@ const CarouselComponent = ({ query, queryKey, title }) => {
             </div>
           ))}
         </Carousel>
-      </span>
+      </div>
     );
   }
-  console.log(queryKey);
+  //console.log(queryKey);
   return content;
 };
 

@@ -19,7 +19,13 @@ const TitleCard = ({ movie }) => {
   };
   return (
     <span className={classes.titleCard}>
-      <img src={"https://image.tmdb.org/t/p/w300/" + movie.backdrop_path} alt="movie poster" />
+      <img
+        src={"https://image.tmdb.org/t/p/w300/" + movie.backdrop_path}
+        onError={(e) => {
+          e.target.src = "https://montagnolirino.it/wp-content/uploads/2015/12/immagine-non-disponibile.png";
+        }}
+        alt="movie poster"
+      />
       <div className={classes.info}>
         <h3 className="text-sm my-2">{movie.name || `${movie.title} `}</h3>
         <p className="m-0 text-2xl flex justify-between items-center">

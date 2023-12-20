@@ -23,7 +23,7 @@ const HeroSection = ({ query, queryKey, posterImg }) => {
   }
   if (data) {
     let movie = data.results[0];
-    console.log(data);
+    //console.log(data);
     content = (
       <div className={classes.hero}>
         <img src={posterImg} alt={movie.original_title + " poster"} />

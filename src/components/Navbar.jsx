@@ -1,9 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
 import classes from "./Navbar.module.css";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  onscroll = () => {
+    setScrollY(window.scrollY);
+  };
+
   return (
-    <nav className={classes.nav}>
+    <nav className={scrollY > 10 ? classes.navScrolled : classes.nav}>
       <ul className={classes.list}>
         <span className={classes.section}>
           <Link to="/">

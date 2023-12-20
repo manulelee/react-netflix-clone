@@ -6,12 +6,15 @@
   width: 86%;
   z-index: 1;
 }
-
+.titleCard img {
+  width: 100%;
+  aspect-ratio: 7/4;
+}
 .titleCard:not(:hover) .info {
   visibility: hidden;
 }
 .info {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 .titleCard:hover {
   scale: 1.3;
