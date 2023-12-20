@@ -63,7 +63,13 @@ const Footer = () => {
           </li>
         </ul>
       </div>
-      <p className="text-center text-xs mb-3">© 1997 - {new Date().getFullYear()} Emanuele.dev</p>
+      <p className="text-center text-xs mb-3">
+        © 1997 - {new Date().getFullYear()}{" "}
+        <a className="text-decoration-none" target="_blank" rel="noreferrer" href="mailto:emanuele.sy@gmail.com">
+          Emanuele
+        </a>
+        , Inc.
+      </p>
     </footer>
   );
 };

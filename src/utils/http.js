@@ -63,3 +63,12 @@ export const TV_GENRES = [
 ];
 
 export const GENRES = [...new Set([...MOVIE_GENRES, ...TV_GENRES])];
+
+export const PROFILE_IMAGES = [
+  { id: 0, link: "https://wallpapers.com/images/high/netflix-profile-pictures-1200-x-1200-3ycxwy07lfm1l32d.webp" },
+  { id: 1, link: "https://wallpapers.com/images/high/netflix-profile-pictures-1000-x-1000-w3lqr61qe57e9yt8.webp" },
+  { id: 2, link: "https://wallpapers.com/images/high/netflix-profile-pictures-1000-x-1000-2fg93funipvqfs9i.webp" },
+  { id: 3, link: "https://wallpapers.com/images/high/netflix-profile-pictures-1000-x-1000-62wgyitks6f4l79m.webp" },
+  { id: 4, link: "https://wallpapers.com/images/high/netflix-profile-pictures-5yup5hd2i60x7ew3.webp" },
+  { id: 5, link: "https://wallpapers.com/images/high/netflix-profile-pictures-1000-x-1000-88wkdmjrorckekha.webp" },
+];

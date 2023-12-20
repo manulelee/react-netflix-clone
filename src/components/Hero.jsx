@@ -3,9 +3,9 @@ import { fetchTitles } from "../utils/http";
 import classes from "./Hero.module.css";
 import { HiMiniPlay } from "react-icons/hi2";
 import { IoIosInformationCircleOutline } from "react-icons/io";
-
+import { ClipLoader } from "react-spinners";
 const HeroSection = ({ query, queryKey, posterImg }) => {
-  const { data, isError, isLoading } = useQuery({
+  const { data, isError, error, isLoading } = useQuery({
     queryFn: ({ signal }) =>
       fetchTitles({
         signal,
@@ -14,12 +14,23 @@ const HeroSection = ({ query, queryKey, posterImg }) => {
     queryKey: [queryKey],
     refetchInterval: 10000,
   });
+
   let content;
+
   if (isError) {
-    content = <div>Error</div>;
+    content = (
+      <div className="text-center my-24 mx-auto">
+        <p> {error.info.status_message || "Error: could not fetch data"}</p>
+        <p>Status: {error.code || "unknown"}</p>
+      </div>
+    );
   }
   if (isLoading) {
-    content = <div>Loading...</div>;
+    content = (
+      <div className=" text-center my-24 mx-auto">
+        <ClipLoader color="red" />
+      </div>
+    );
   }
   if (data) {
     let movie = data.results[0];
@@ -30,7 +41,9 @@ const HeroSection = ({ query, queryKey, posterImg }) => {
         <div>
           <button
             className={classes.watchBtn}
-            onClick={() => alert("This is a dummy clone. 🥲 \n Go to netflix.com and subscribe now!")}
+            onClick={() =>
+              alert(`This is a dummy clone. 🥲 \nGo to netflix.com and subscribe now to watch ${movie.original_title}`)
+            }
           >
             <HiMiniPlay />
             Play

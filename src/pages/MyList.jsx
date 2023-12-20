@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import TitleCard from "../components/TitleCard";
 
 const MyListPage = () => {
-  const items = useSelector((state) => state.favorite);
+  const items = useSelector((state) => state.favorites.favorites);
   //console.log(items);
   return (
     <div className="content flex flex-col mt-14">

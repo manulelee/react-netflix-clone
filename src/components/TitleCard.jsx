@@ -7,7 +7,8 @@ import { addToFavorites, removeFromFavorites } from "../store/favoriteSlice";
 
 const TitleCard = ({ movie }) => {
   const dispatch = useDispatch();
-  const favorites = useSelector((state) => state.favorite);
+  const favorites = useSelector((state) => state.favorites.favorites);
+  //console.log(favorites);
   const isInFavorites = favorites.some((item) => item.id === movie.id);
 
   const handleFavorite = () => {
@@ -27,10 +28,18 @@ const TitleCard = ({ movie }) => {
         alt="movie poster"
       />
       <div className={classes.info}>
-        <h3 className="text-sm my-2">{movie.name || `${movie.title} `}</h3>
+        <h3 className="text-sm my-2">{movie.name || movie.title}</h3>
         <p className="m-0 text-2xl flex justify-between items-center">
           <span className="flex me-1">
-            <IoPlayCircleOutline />
+            <IoPlayCircleOutline
+              onClick={() =>
+                alert(
+                  `This is a dummy clone. 🥲 \nGo to netflix.com and subscribe now to watch ${
+                    movie.name || movie.title
+                  }`
+                )
+              }
+            />
             <IoIosHeart className={isInFavorites ? "text-red-500" : ""} onClick={handleFavorite} />
             <IoIosAddCircleOutline />
           </span>

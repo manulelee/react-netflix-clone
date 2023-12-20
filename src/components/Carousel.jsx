@@ -4,9 +4,10 @@ import "react-multi-carousel/lib/styles.css";
 import { fetchTitles } from "../utils/http";
 import TitleCard from "./TitleCard";
 import classes from "./Carousel.module.css";
+import { ClipLoader } from "react-spinners";
 
 const CarouselComponent = ({ query, queryKey, title }) => {
-  const { data, isError, isLoading } = useQuery({
+  const { data, isError, error, isLoading } = useQuery({
     queryFn: ({ signal }) => fetchTitles({ signal, query }),
     queryKey: [queryKey],
     refetchInterval: 10000,
@@ -40,34 +41,45 @@ const CarouselComponent = ({ query, queryKey, title }) => {
   };
   let content;
   if (isError) {
-    content = <div>Error</div>;
-  }
-  if (isLoading) {
-    content = <div className="mx-auto  w-full ">Loading...</div>;
-  }
-  if (data) {
     content = (
-      <div className={classes.container}>
-        <h2 className="-mb-5 text-2xl font-bold z-10!important">{title}</h2>
-        <Carousel
-          containerClass="carousel-container"
-          responsive={responsive}
-          centerMode={true}
-          slidesToSlide={3}
-          infinite={true}
-          swipeable
-        >
-          {data.results.map((movie) => (
-            <div key={movie.id}>
-              <TitleCard movie={movie} />
-            </div>
-          ))}
-        </Carousel>
+      <div className="text-center my-24 mx-auto">
+        <p> {error.info.status_message || "Error: could not fetch data"}</p>
+        <p>Status: {error.code || "unknown"}</p>
       </div>
     );
   }
-  //console.log(queryKey);
-  return content;
+  if (isLoading) {
+    content = (
+      <div className=" text-center my-24 mx-auto">
+        <ClipLoader color="red" />
+      </div>
+    );
+  }
+  if (data) {
+    content = (
+      <Carousel
+        containerClass="carousel-container"
+        responsive={responsive}
+        centerMode={true}
+        slidesToSlide={3}
+        infinite={true}
+        swipeable
+      >
+        {data.results.map((movie) => (
+          <div key={movie.id}>
+            <TitleCard movie={movie} />
+          </div>
+        ))}
+      </Carousel>
+    );
+  }
+
+  return (
+    <div className={classes.container}>
+      <h2 className="-mb-5 text-2xl font-bold z-10!important">{title}</h2>
+      {content}
+    </div>
+  );
 };
 
 export default CarouselComponent;

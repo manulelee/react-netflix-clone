@@ -35,3 +35,7 @@
 .reset {
   margin-right: 1em;
 }
+.form img {
+  width: 50px;
+  margin: 0.3em;
+}

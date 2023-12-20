@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import classes from "./Navbar.module.css";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -8,7 +9,7 @@ const Navbar = () => {
   onscroll = () => {
     setScrollY(window.scrollY);
   };
-
+  const profile = useSelector((state) => state.profile.profile);
   return (
     <nav className={scrollY > 10 ? classes.navScrolled : classes.nav}>
       <ul className={classes.list}>
@@ -45,7 +46,10 @@ const Navbar = () => {
         <span className={classes.section}>
           <li>
             <NavLink className={({ isActive }) => (isActive ? classes.active : undefined)} to="/profile">
-              Profile
+              <span className="flex justify-center items-center">
+                {profile.name}
+                <img src={profile.selectedAvatar.link} className={classes.avatar} alt="profile avatar" />
+              </span>
             </NavLink>
           </li>
         </span>

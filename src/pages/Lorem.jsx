@@ -1,6 +1,6 @@
 const Lorem = () => {
   return (
-    <p className="opacity-60 mt-5 mb-10 mx-auto text-justify w-3/4">
+    <p className="opacity-60 mt-20 mb-10 mx-auto text-justify w-3/4">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, voluptatem sunt, quidem eaque necessitatibus
       tenetur sequi, reprehenderit exercitationem quo ad laborum explicabo laudantium. Consequatur nemo quaerat sequi
       doloribus aut? Molestias. Incidunt possimus odit quas, reiciendis delectus animi corporis, facere ut quidem

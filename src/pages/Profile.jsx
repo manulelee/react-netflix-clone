@@ -1,13 +1,19 @@
 import { useState } from "react";
 import classes from "./Profile.module.css";
-import { Form, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { replaceProfile } from "../store/profileSlice";
+import { PROFILE_IMAGES as IMAGES } from "../utils/http";
 
 const ProfilePage = () => {
-  const [name, setName] = useState("Emanuele");
-  const [surname, setSurname] = useState("Syrbe");
-  const [email, setEmail] = useState("emanuele@gmail.com");
-  const [password, setPassword] = useState("qwerty");
-  const [username, setUsername] = useState("lele");
+  const dispatch = useDispatch();
+  const profile = useSelector((state) => state.profile.profile);
+  const [name, setName] = useState(profile.name);
+  const [surname, setSurname] = useState(profile.surname);
+  const [email, setEmail] = useState(profile.email);
+  const [selectedAvatar, setSelectedAvatar] = useState(profile.selectedAvatar);
+  const [password, setPassword] = useState(profile.password);
+  const [username, setUsername] = useState(profile.username);
   const navigate = useNavigate();
 
   const isDisabled = !name.trim() || !surname.trim() || !email.trim() || !password.trim() || !username.trim();
@@ -25,8 +31,19 @@ const ProfilePage = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    let data = { name, surname, email, password, username };
+    let data = { name, surname, email, selectedAvatar, password, username };
     console.log(data);
+    dispatch(replaceProfile(data));
+    navigate("/");
+  };
+
+  const handleDiscard = (e) => {
+    setName(profile.name);
+    setSurname(profile.surname);
+    setEmail(profile.email);
+    setPassword(profile.password);
+    setUsername(profile.username);
+    setSelectedAvatar(profile.seletedAvatar);
     navigate("/");
   };
 
@@ -37,6 +54,17 @@ const ProfilePage = () => {
         <small className={classes.invalid}>
           {isDisabled && `Please fill ${invalidInput.map((input) => input.toLowerCase())} field `}
         </small>
+        <div className="flex flex-wrap">
+          {IMAGES.map((image) => (
+            <img
+              src={image.link}
+              key={image.id}
+              alt="avatar"
+              className={selectedAvatar.id === image.id ? "border border-red-600" : ""}
+              onClick={() => setSelectedAvatar(image)}
+            />
+          ))}
+        </div>
         <label htmlFor="name">Name</label>
         <input required id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} />
         <label htmlFor="lastName">Last name</label>
@@ -56,8 +84,8 @@ const ProfilePage = () => {
           onBlur={(e) => (e.target.type = "password")}
         />
         <div className={classes.buttonsContainer}>
-          <button className={classes.reset} type="button">
-            Reset
+          <button onClick={handleDiscard} className={classes.reset} type="button">
+            Discard
           </button>
           <button className={classes.save} type="submit" disabled={isDisabled}>
             Save
