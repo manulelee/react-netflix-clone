@@ -38,7 +38,6 @@ const HeroSection = ({ query, queryKey, posterImg }) => {
   }
   if (data) {
     let movie = data.results[0];
-    //console.log(data);
     content = (
       <div className={classes.hero}>
         <img src={posterImg} alt={movie.original_title + " poster"} />
@@ -58,7 +57,6 @@ const HeroSection = ({ query, queryKey, posterImg }) => {
           </button>
           <button
             onClick={() => {
-              console.log(movie.media_type);
               navigate(`/title/${movie.media_type ? movie.media_type : "movie"}/${movie.id}`);
             }}
           >

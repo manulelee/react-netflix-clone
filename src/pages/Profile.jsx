@@ -32,7 +32,6 @@ const ProfilePage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     let data = { name, surname, email, selectedAvatar, password, username };
-    console.log(data);
     dispatch(replaceProfile(data));
     navigate("/");
   };

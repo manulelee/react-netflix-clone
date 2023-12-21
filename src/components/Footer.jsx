@@ -7,17 +7,41 @@ const Footer = () => {
     <footer className="w-full">
       <div className="mx-auto w-3/4">
         <p className="text-xl flex items-center">
-          <a href="https://www.facebook.com/netflix" target="_blank" rel="noreferrer" className="mr-5">
+          <a
+            aria-label="Link to Netflix Facebook page"
+            href="https://www.facebook.com/netflix"
+            target="_blank"
+            rel="noreferrer"
+            className="mr-5"
+          >
             <FaFacebookF />
           </a>
 
-          <a href="https://www.instagram.com/netflix" target="_blank" rel="noreferrer" className="mr-5 text-2xl">
+          <a
+            aria-label="Link to Netflix Instagram page"
+            href="https://www.instagram.com/netflix"
+            target="_blank"
+            rel="noreferrer"
+            className="mr-5 text-2xl"
+          >
             <FaInstagram />
           </a>
-          <a href="https://www.twitter.com/netflix" target="_blank" rel="noreferrer" className="mr-5 text-2xl">
+          <a
+            aria-label="Link to Netflix Twitter (X) page"
+            href="https://www.twitter.com/netflix"
+            target="_blank"
+            rel="noreferrer"
+            className="mr-5 text-2xl"
+          >
             <FaXTwitter />
           </a>
-          <a href="https://www.youtube.com/netflix" target="_blank" rel="noreferrer" className="mr-5 text-3xl">
+          <a
+            aria-label="Link to Netflix Youtube page"
+            href="https://www.youtube.com/netflix"
+            target="_blank"
+            rel="noreferrer"
+            className="mr-5 text-3xl"
+          >
             <FaYoutube />
           </a>
         </p>

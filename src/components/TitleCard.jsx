@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 const TitleCard = ({ movie }) => {
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorites.favorites);
-  //console.log(favorites);
   const isInFavorites = favorites.some((item) => item.id === movie.id);
 
   const handleFavorite = () => {

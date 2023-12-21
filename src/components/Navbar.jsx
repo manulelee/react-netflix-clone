@@ -86,7 +86,7 @@ const XsNav = ({ profile }) => {
           </Link>
         </span>
         <span className={classes.links}>
-          <button onClick={() => setExpand(!expand)} className={classes.btn}>
+          <button title="expand menu" onClick={() => setExpand(!expand)} className={classes.btn}>
             <GiHamburgerMenu />
           </button>
         </span>

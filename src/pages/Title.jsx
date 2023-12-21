@@ -13,7 +13,6 @@ const TitlePage = () => {
     //refetchInterval: 10000,
   });
   let content;
-  console.log(data);
 
   if (isError) {
     content = (
