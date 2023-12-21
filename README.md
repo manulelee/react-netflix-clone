@@ -1,7 +1,7 @@
 # REACT NETFLIX CLONE
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-Developed using Tailwind, ReactQuery (Tanstack) & React-Router V6.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
+Developed using Tailwind, ReactQuery (Tanstack) & React-Router V6.\
 Hosted at [Vercel](https://react-netflix-clone-liart.vercel.app/)
 
 ## Available Scripts
