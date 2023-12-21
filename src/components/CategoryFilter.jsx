@@ -1,7 +1,7 @@
 import classes from "./CategoryFilter.module.css";
 const CategoryFilter = ({ title, genres, setterFn }) => {
   return (
-    <div className={classes.categoryFilter}>
+    <div data-testid="category-filter" className={classes.categoryFilter}>
       <label htmlFor="category" className="text-4xl font-bold me-3">
         {title}
       </label>

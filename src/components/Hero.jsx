@@ -39,7 +39,7 @@ const HeroSection = ({ query, queryKey, posterImg }) => {
   if (data) {
     let movie = data.results[0];
     content = (
-      <div className={classes.hero}>
+      <div data-testid="hero-section" className={classes.hero}>
         <img src={posterImg} alt={movie.original_title + " poster"} />
         <div>
           <button

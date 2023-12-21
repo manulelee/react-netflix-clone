@@ -18,26 +18,32 @@ const CarouselComponent = ({ query, queryKey, title }) => {
     xxl: {
       breakpoint: { max: 4000, min: 1200 },
       items: 5,
+      slidesToSlide: 5,
     },
     xl: {
-      breakpoint: { max: 993, min: 1200 },
+      breakpoint: { max: 992, min: 1200 },
       items: 4,
+      slidesToSlide: 4,
     },
     lg: {
-      breakpoint: { max: 769, min: 992 },
+      breakpoint: { max: 768, min: 992 },
       items: 3,
+      slidesToSlide: 3,
     },
     md: {
       breakpoint: { max: 768, min: 577 },
       items: 2,
+      slidesToSlide: 2,
     },
     sm: {
       breakpoint: { max: 576, min: 464 },
       items: 1,
+      slidesToSlide: 1,
     },
     xs: {
       breakpoint: { max: 464, min: 0 },
       items: 0.5,
+      slidesToSlide: 0.5,
     },
   };
   let content;
@@ -59,10 +65,10 @@ const CarouselComponent = ({ query, queryKey, title }) => {
   if (data) {
     content = (
       <Carousel
+        data-testid="carousel"
         containerClass="carousel-container"
         responsive={responsive}
         centerMode={true}
-        slidesToSlide={3}
         infinite={true}
         swipeable
       >

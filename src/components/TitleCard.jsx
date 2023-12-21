@@ -19,7 +19,7 @@ const TitleCard = ({ movie }) => {
     }
   };
   return (
-    <span className={classes.titleCard}>
+    <span data-testid="card" className={classes.titleCard}>
       <img
         src={"https://image.tmdb.org/t/p/w300/" + movie.backdrop_path}
         onError={(e) => {

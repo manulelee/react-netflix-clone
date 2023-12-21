@@ -4,7 +4,7 @@ import { FaInstagram, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="w-full">
+    <footer data-testid="footer" className="w-full">
       <div className="mx-auto w-3/4">
         <p className="text-xl flex items-center">
           <a

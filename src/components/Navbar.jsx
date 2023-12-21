@@ -13,7 +13,7 @@ const Navbar = () => {
   const profile = useSelector((state) => state.profile.profile);
 
   return (
-    <nav className={scrollY > 10 ? classes.navScrolled : classes.nav}>
+    <nav data-testid="navbar" className={scrollY > 10 ? classes.navScrolled : classes.nav}>
       <span className="hidden md:block">
         <LgNav profile={profile} />
       </span>
