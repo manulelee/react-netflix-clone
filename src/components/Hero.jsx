@@ -4,7 +4,10 @@ import classes from "./Hero.module.css";
 import { HiMiniPlay } from "react-icons/hi2";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import { ClipLoader } from "react-spinners";
+import { useNavigate } from "react-router-dom";
+
 const HeroSection = ({ query, queryKey, posterImg }) => {
+  const navigate = useNavigate();
   const { data, isError, error, isLoading } = useQuery({
     queryFn: ({ signal }) =>
       fetchTitles({
@@ -42,13 +45,22 @@ const HeroSection = ({ query, queryKey, posterImg }) => {
           <button
             className={classes.watchBtn}
             onClick={() =>
-              alert(`This is a dummy clone. 🥲 \nGo to netflix.com and subscribe now to watch ${movie.original_title}`)
+              alert(
+                `This is a dummy clone for a personal project. 🥲 \nGo to www.netflix.com and subscribe now to watch ${
+                  movie.original_title || movie.name
+                }`
+              )
             }
           >
             <HiMiniPlay />
             Play
           </button>
-          <button>
+          <button
+            onClick={() => {
+              console.log(movie.media_type);
+              navigate(`/title/${movie.media_type ? movie.media_type : "movie"}/${movie.id}`);
+            }}
+          >
             <IoIosInformationCircleOutline /> More Info
           </button>
         </div>

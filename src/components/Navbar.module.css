@@ -4,7 +4,7 @@
   top: 0;
   width: 100%;
   z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.3) !important;
+  background-color: rgba(0, 0, 0, 0.4) !important;
   transition: 0.3s ease-in-out;
 }
 
@@ -25,13 +25,12 @@ nav img {
 
 .list {
   list-style: none;
-
   display: flex;
   justify-content: space-between;
   margin-right: 1rem;
 }
 
-.section {
+.links {
   display: flex;
   align-items: center;
 }

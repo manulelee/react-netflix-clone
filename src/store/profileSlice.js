@@ -4,7 +4,7 @@ const initialState = {
   profile: {
     name: "Emanuele",
     surname: "Syrbe",
-    email: "emanuele@gmail",
+    email: "emanuele@gmail.com",
     password: "qwerty",
     username: "lele",
     selectedAvatar: IMAGES[1],

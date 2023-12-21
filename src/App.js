@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         element: <MyListPage />,
       },
       {
-        path: "/title/:id",
+        path: "/title/:type/:id",
         element: <TitlePage />,
       },
       {

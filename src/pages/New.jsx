@@ -5,10 +5,11 @@ const NewPage = () => {
   return (
     <>
       <HeroSection
-        queryKey={["Killers of the Flower Moon"]}
-        query="search/movie?query=Killers%20of%20the%20Flower%20Moon&include_adult=false&language=en-US&page=1"
-        posterImg="https://www.ciakclub.it/wp-content/uploads/2023/10/7b068ef0-ad6f-4813-ab54-a766ce3047b9-1536x864.jpg"
+        queryKey={["Once Upon A Time In Hollywood"]}
+        query="search/movie?query=Once%20Upon%20A%20Time%20In%20Hollywood&include_adult=false&language=en-US&page=1"
+        posterImg="https://pbs.twimg.com/media/EJ_yuPvU8AAnBdN.jpg"
       />
+
       <div className="content">
         <CarouselComponent
           queryKey={["Upcoming movies"]}

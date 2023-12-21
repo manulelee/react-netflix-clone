@@ -4,6 +4,7 @@ import { IoIosArrowDropdown, IoIosAddCircleOutline, IoIosHeart } from "react-ico
 import { IoPlayCircleOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { addToFavorites, removeFromFavorites } from "../store/favoriteSlice";
+import { Link } from "react-router-dom";
 
 const TitleCard = ({ movie }) => {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ const TitleCard = ({ movie }) => {
             <IoPlayCircleOutline
               onClick={() =>
                 alert(
-                  `This is a dummy clone. 🥲 \nGo to netflix.com and subscribe now to watch ${
+                  `This is a dummy clone for a personal project. 🥲 \nGo to www.netflix.com and subscribe now to watch ${
                     movie.name || movie.title
                   }`
                 )
@@ -44,7 +45,9 @@ const TitleCard = ({ movie }) => {
             <IoIosAddCircleOutline />
           </span>
           <span>
-            <IoIosArrowDropdown className="text-3xl" />
+            <Link to={`/title/${movie.media_type ? movie.media_type : "movie"}/${movie.id}`}>
+              <IoIosArrowDropdown className="text-3xl" />
+            </Link>
           </span>
         </p>
         <ul className="flex flex-row list-none ps-0 overflow-auto">

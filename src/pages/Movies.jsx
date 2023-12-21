@@ -1,15 +1,32 @@
+import { useState } from "react";
 import CarouselComponent from "../components/Carousel";
+import CategoryFilter from "../components/CategoryFilter";
 import HeroSection from "../components/Hero";
+import { MOVIE_GENRES } from "../utils/http";
 
 const MoviesPage = () => {
+  const [selectedGenre, setSelectedGenre] = useState(null);
+  let genreName;
+  if (selectedGenre) {
+    genreName = MOVIE_GENRES.find((genre) => genre.id === selectedGenre).name;
+  }
+
   return (
     <>
+      <CategoryFilter title="Movies" genres={MOVIE_GENRES} setterFn={setSelectedGenre} />
       <HeroSection
-        queryKey={["Oppenheimer"]}
-        query="search/movie?query=Oppenheimer&include_adult=false&language=en-US&page=1"
-        posterImg="https://aristonsanremo.com/wp-content/uploads/2023/08/opp-bann.jpg"
+        queryKey={["Killers of the Flower Moon"]}
+        query="search/movie?query=Killers%20of%20the%20Flower%20Moon&include_adult=false&language=en-US&page=1"
+        posterImg="https://www.ciakclub.it/wp-content/uploads/2023/10/7b068ef0-ad6f-4813-ab54-a766ce3047b9-1536x864.jpg"
       />
       <div className="content">
+        {selectedGenre && (
+          <CarouselComponent
+            query={`discover/movie?with_genres=${selectedGenre}`}
+            queryKey={["Movie", { genreName }]}
+            title={`${genreName} movies`}
+          />
+        )}
         <CarouselComponent query="discover/movie?with_genres=18" queryKey={["Movie", "Drama"]} title="Drama" />
 
         <CarouselComponent query="discover/movie?with_genres=14" queryKey={["Movie", "Fantasy"]} title="Fantasy" />

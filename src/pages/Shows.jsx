@@ -1,9 +1,18 @@
+import { useState } from "react";
 import CarouselComponent from "../components/Carousel";
 import HeroSection from "../components/Hero";
+import { TV_GENRES } from "../utils/http";
+import CategoryFilter from "../components/CategoryFilter";
 
 const ShowPage = () => {
+  const [selectedGenre, setSelectedGenre] = useState(null);
+  let genreName;
+  if (selectedGenre) {
+    genreName = TV_GENRES.find((genre) => genre.id === selectedGenre).name;
+  }
   return (
     <>
+      <CategoryFilter title="TV Shows" genres={TV_GENRES} setterFn={setSelectedGenre} />
       <HeroSection
         queryKey={["The midnight gospel"]}
         query="search/tv?query=The%20Midnight%20Gospel&include_adult=false&language=en-US&page=1"
@@ -12,6 +21,13 @@ const ShowPage = () => {
         }
       />
       <div className="content">
+        {selectedGenre && (
+          <CarouselComponent
+            query={`discover/tv?with_genres=${selectedGenre}`}
+            queryKey={["Movie", { genreName }]}
+            title={`${genreName} shows`}
+          />
+        )}
         <CarouselComponent
           query="discover/tv?with_genres=10765"
           queryKey={["Show", "Sci-Fi & Fantasy"]}

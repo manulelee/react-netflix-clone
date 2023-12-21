@@ -5,9 +5,9 @@ const HomePage = () => {
   return (
     <>
       <HeroSection
-        queryKey={["Killers of the Flower Moon"]}
-        query="search/movie?query=Killers%20of%20the%20Flower%20Moon&include_adult=false&language=en-US&page=1"
-        posterImg="https://www.ciakclub.it/wp-content/uploads/2023/10/7b068ef0-ad6f-4813-ab54-a766ce3047b9-1536x864.jpg"
+        queryKey={["Kill Bill vol.1"]}
+        query="search/movie?query=Kill%20Bill%20vol%201&include_adult=false&language=en-US&page=1"
+        posterImg="https://w0.peakpx.com/wallpaper/385/847/HD-wallpaper-kill-bill-kill-bill-vol-1-uma-thurman.jpg"
       />
       <div className="content">
         <CarouselComponent
