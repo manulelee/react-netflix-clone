@@ -10,7 +10,8 @@ const CarouselComponent = ({ query, queryKey, title }) => {
   const { data, isError, error, isLoading } = useQuery({
     queryFn: ({ signal }) => fetchTitles({ signal, query }),
     queryKey: [queryKey],
-    refetchInterval: 10000,
+    // refetchInterval setted to 1 hour,
+    refetchInterval: 3600000,
   });
 
   const responsive = {

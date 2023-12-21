@@ -15,7 +15,8 @@ const HeroSection = ({ query, queryKey, posterImg }) => {
         query,
       }),
     queryKey: [queryKey],
-    refetchInterval: 10000,
+    // refetchInterval setted to 1 hour,
+    refetchInterval: 3600000,
   });
 
   let content;
