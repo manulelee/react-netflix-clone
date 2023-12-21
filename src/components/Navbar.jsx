@@ -81,7 +81,7 @@ const XsNav = ({ profile }) => {
     <>
       <ul className={classes.list}>
         <span className={classes.links}>
-          <Link to="/">
+          <Link onClick={() => setExpand(false)} to="/">
             <img src="/images/netflix_logo.png" alt="netflix logo" />
           </Link>
         </span>
@@ -94,32 +94,56 @@ const XsNav = ({ profile }) => {
       {expand && (
         <ul className={classes.mobile}>
           <li>
-            <NavLink className={({ isActive }) => (isActive ? classes.active : undefined)} to="/profile">
+            <NavLink
+              onClick={() => setExpand(false)}
+              className={({ isActive }) => (isActive ? classes.active : undefined)}
+              to="/profile"
+            >
               Profile
             </NavLink>
           </li>
           <li>
-            <NavLink className={({ isActive }) => (isActive ? classes.active : undefined)} to="/">
+            <NavLink
+              onClick={() => setExpand(false)}
+              className={({ isActive }) => (isActive ? classes.active : undefined)}
+              to="/"
+            >
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink className={({ isActive }) => (isActive ? classes.active : undefined)} to="/movies">
+            <NavLink
+              onClick={() => setExpand(false)}
+              className={({ isActive }) => (isActive ? classes.active : undefined)}
+              to="/movies"
+            >
               Movies
             </NavLink>
           </li>
           <li>
-            <NavLink className={({ isActive }) => (isActive ? classes.active : undefined)} to="/shows">
+            <NavLink
+              onClick={() => setExpand(false)}
+              className={({ isActive }) => (isActive ? classes.active : undefined)}
+              to="/shows"
+            >
               Shows
             </NavLink>
           </li>
           <li>
-            <NavLink className={({ isActive }) => (isActive ? classes.active : undefined)} to="/new">
+            <NavLink
+              onClick={() => setExpand(false)}
+              className={({ isActive }) => (isActive ? classes.active : undefined)}
+              to="/new"
+            >
               New & Trends
             </NavLink>
           </li>
           <li>
-            <NavLink className={({ isActive }) => (isActive ? classes.active : undefined)} to="/my-list">
+            <NavLink
+              onClick={() => setExpand(false)}
+              className={({ isActive }) => (isActive ? classes.active : undefined)}
+              to="/my-list"
+            >
               My List
             </NavLink>
           </li>
