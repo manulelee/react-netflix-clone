@@ -4,10 +4,14 @@
   top: 0;
   width: 100%;
   z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.4) !important;
+  background-color: rgba(0, 0, 0, 1) !important;
   transition: 0.3s ease-in-out;
 }
-
+@media (min-width: 768px) {
+  .nav {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+  }
+}
 .navScrolled {
   margin-top: 0;
   position: fixed;
